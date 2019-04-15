@@ -27,9 +27,30 @@ class MyApp extends StatelessWidget {
           title: Text('Flutter App'),
         ),
         body: Center(
-          child: Text(wordPairs.asPascalCase),
+          child: RandomWords(),
         ),
       ),
     );
   }
+}
+
+class RandomWordsState extends State<RandomWords>{
+  final suggestions=<WordPair>[];
+  final biggerFont=const TextStyle(fontSize: 18);
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    final wordPair=WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
+
+  Widget buildSuggestions(){
+    return ListView.builder(itemBuilder: (context,i){});
+  }
+  
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  RandomWordsState createState()=>new RandomWordsState();
 }
